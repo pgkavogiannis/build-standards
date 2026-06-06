@@ -4,36 +4,36 @@ A configs-only template for bootstrapping shared Java/Maven + Angular/npm build 
 
 ## What's included
 
-| Path | Purpose |
-|---|---|
-| `repo-code-quality-configs/` | JAR artifact with Checkstyle and Spotless formatter config files |
-| `repo-parent/` | Maven parent POM with pinned plugin versions and quality gates |
-| `repo-shared-configs/` | Yarn workspace with a shareable ESLint + Prettier config package |
-| `Makefile` | Platform-agnostic CI entry point (`make ci`) |
-| `mvnw` / `mvnw.cmd` | Maven wrapper (Maven 3.9.11) |
-| `CLAUDE.md` | Claude Code project instructions starter |
-| `CONTRIBUTING.md` | Dev setup, pre-commit hooks, release process |
-| `SECURITY.md` | Vulnerability disclosure policy |
-| `.editorconfig` | Editor-agnostic indent/charset rules |
-| `.gitattributes` | Enforces LF line endings and binary markers across all Git clients |
-| `.sdkmanrc` | Pins JDK version (Java 8 Temurin) for sdkman users |
-| `.gitleaks.toml` | Secret scanning allowlist (wrapper JAR, template tokens) |
-| `.claudeignore` | Claude Code ignore patterns |
-| `.env.example` | Documents required secrets — safe to commit |
-| `.husky/pre-commit` | Git hook: runs `tidy:check` on every commit |
+| Path                         | Purpose                                                            |
+|------------------------------|--------------------------------------------------------------------|
+| `repo-code-quality-configs/` | JAR artifact with Checkstyle and Spotless formatter config files   |
+| `repo-parent/`               | Maven parent POM with pinned plugin versions and quality gates     |
+| `repo-shared-configs/`       | Yarn workspace with a shareable ESLint + Prettier config package   |
+| `Makefile`                   | Platform-agnostic CI entry point (`make ci`)                       |
+| `mvnw` / `mvnw.cmd`          | Maven wrapper (Maven 3.9.11)                                       |
+| `CLAUDE.md`                  | Claude Code project instructions starter                           |
+| `CONTRIBUTING.md`            | Dev setup, pre-commit hooks, release process                       |
+| `SECURITY.md`                | Vulnerability disclosure policy                                    |
+| `.editorconfig`              | Editor-agnostic indent/charset rules                               |
+| `.gitattributes`             | Enforces LF line endings and binary markers across all Git clients |
+| `.sdkmanrc`                  | Pins JDK version (Java 8 Temurin) for sdkman users                 |
+| `.gitleaks.toml`             | Secret scanning allowlist (wrapper JAR, template tokens)           |
+| `.claudeignore`              | Claude Code ignore patterns                                        |
+| `.env.example`               | Documents required secrets — safe to commit                        |
+| `.husky/pre-commit`          | Git hook: runs `tidy:check` on every commit                        |
 
-### Key tooling versions (pinned for Java 8 compatibility)
+### Key tooling versions
 
-| Tool | Version | Why pinned |
-|---|---|---|
-| Spotless Maven Plugin | 2.30.0 | 2.46.0+ requires Java 11+ |
-| Eclipse Java Formatter | 4.19.0 | 4.20+ requires Java 11+ |
+| Tool                   | Version | Notes                                                 |
+|------------------------|---------|-------------------------------------------------------|
+| Spotless Maven Plugin  | 3.6.0   | Requires Java 17+; supports Java 21 language features |
+| Eclipse Java Formatter | 4.39    | Bundled default for Spotless 3.6.0                    |
 
 See `USAGE.md` for the rationale behind non-obvious choices.
 
 ## Prerequisites
 
-- Java 8+
+- Java 21+ (enforced by Maven Enforcer)
 - Maven 3.6.3+ (or use the included `./mvnw`)
 - Node.js 20+ with [Volta](https://volta.sh/) for version pinning
 - Yarn 4+
@@ -50,21 +50,21 @@ See `USAGE.md` for the rationale behind non-obvious choices.
 
 3. Find-replace the remaining `{{...}}` tokens:
 
-   | Token | Replace with |
-   |---|---|
-   | `{{GROUP_ID}}` | Your Maven group ID, e.g. `com.example` |
-   | `{{PROJECT_NAME}}` | Human-readable project name, e.g. `Acme Build Standards` |
-   | `{{NVD_API_KEY}}` | API key from https://nvd.nist.gov/developers/request-an-api-key |
-   | `{{OSS_INDEX_USERNAME}}` | OSS Index account email from https://ossindex.sonatype.org/ |
-   | `{{OSS_INDEX_PASSWORD}}` | OSS Index API token |
-   | `{{COMPONENT_PREFIX}}` | Angular component/directive selector prefix, e.g. `app` |
+   | Token                        | Replace with                                                                                                 |
+   |------------------------------|--------------------------------------------------------------------------------------------------------------|
+   | `{{GROUP_ID}}`               | Your Maven group ID, e.g. `com.example`                                                                      |
+   | `{{PROJECT_NAME}}`           | Human-readable project name, e.g. `Acme Build Standards`                                                     |
+   | `{{NVD_API_KEY}}`            | API key from https://nvd.nist.gov/developers/request-an-api-key                                              |
+   | `{{OSS_INDEX_USERNAME}}`     | OSS Index account email from https://ossindex.sonatype.org/                                                  |
+   | `{{OSS_INDEX_PASSWORD}}`     | OSS Index API token                                                                                          |
+   | `{{COMPONENT_PREFIX}}`       | Angular component/directive selector prefix, e.g. `app`                                                      |
    | `{{CUSTOM_PLUGIN_GROUP_ID}}` | Custom Maven plugin groupId to exclude from site reports, or remove the `<pluginManagementExcludes>` element |
-   | `{{YEAR}}` | Current year |
-   | `{{AUTHOR}}` | Your name or organization |
-   | `{{LICENSE}}` | SPDX license identifier, e.g. `MIT` or `Apache-2.0` |
-   | `{{MAVEN_DISTRIBUTION_URL}}` | _(Optional)_ Custom Artifactory URL for Maven distribution |
-   | `{{SECURITY_EMAIL}}` | Email address for vulnerability reports (SECURITY.md) |
-   | `{{RELEASE_DATE}}` | Initial release date for CHANGELOG.md |
+   | `{{YEAR}}`                   | Current year                                                                                                 |
+   | `{{AUTHOR}}`                 | Your name or organization                                                                                    |
+   | `{{LICENSE}}`                | SPDX license identifier, e.g. `MIT` or `Apache-2.0`                                                          |
+   | `{{MAVEN_DISTRIBUTION_URL}}` | _(Optional)_ Custom Artifactory URL for Maven distribution                                                   |
+   | `{{SECURITY_EMAIL}}`         | Email address for vulnerability reports (SECURITY.md)                                                        |
+   | `{{RELEASE_DATE}}`           | Initial release date for CHANGELOG.md                                                                        |
 
 4. Rename directories from `repo-*` to your prefix:
    ```sh

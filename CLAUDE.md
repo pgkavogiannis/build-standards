@@ -35,8 +35,9 @@ repo-shared-configs/         # Yarn workspace
 
 ## Key Constraints
 
-- Spotless is pinned to **2.30.0** — do not upgrade past 2.43.0 if Java 8 compatibility is required.
-- Eclipse formatter is pinned to **4.19.0** for the same reason.
+- Requires **JDK 21+** — enforced by the Maven Enforcer plugin.
+- Spotless **3.x** requires Java 17+; do not downgrade to 2.x on this branch.
+- Eclipse formatter **4.39** matches Spotless 3.6.0 defaults.
 - See USAGE.md for full rationale.
 
 ## Token substitution (template bootstrap)

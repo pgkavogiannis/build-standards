@@ -2,14 +2,15 @@
 
 Non-obvious decisions explained.
 
-## Why Spotless 2.30.0 (not latest)?
+## Why Spotless 3.6.0?
 
-Spotless 2.46.0+ dropped Java 8 support. If your projects still compile on Java 8, pin to 2.30.0.
-When you upgrade to Java 11+, you can use the latest Spotless release.
+Spotless 3.x requires Java 17+ and brings full Java 21 language support (records, sealed classes,
+pattern matching). For Java 8 projects use the `java-8` tag on `main` which pins Spotless to 2.30.0.
 
-## Why Eclipse Java Formatter 4.19.0?
+## Why Eclipse Java Formatter 4.39?
 
-Eclipse Formatter 4.20+ requires Java 11+. Pin to 4.19.0 for Java 8 compatibility.
+4.39 is the default bundled with Spotless 3.6.0 and supports all Java 21 syntax. Earlier versions
+(pre-4.20) require Java 11+ at minimum; pre-4.19 supports Java 8.
 
 ## Why the 4-digit version scheme (MAJOR.MINOR.PATCH.BUILD)?
 
@@ -25,10 +26,10 @@ Enforces a canonical POM element order so diffs stay clean. Run `./mvnw tidy:pom
 Automates Git Flow branching (`develop → release/x.y → main`) including version bumps. Configure
 `pushRemote` to `true` once your remote is set up.
 
-## Why `dependency-check-maven` needs a JDK 11+?
+## Why `dependency-check-maven` 12.1.3?
 
-OWASP Dependency Check 12.1.0+ requires JDK 11+ due to changes in the NVD data format. If you build
-on JDK 8, run `dependency-check:check` separately with a JDK 11+ `JAVA_HOME`.
+OWASP Dependency Check 12.1.0+ requires JDK 11+ due to changes in the NVD data format. On this
+branch JDK 21 is the baseline so the plugin runs natively with no extra configuration.
 
 ## Why `ossIndexUsername` / `ossIndexPassword` in the POM?
 

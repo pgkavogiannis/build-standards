@@ -1,4 +1,4 @@
 # sdkman — pin the JDK used by this repo
 # Run `sdk env install` once to install, then `sdk env` to activate
-# Matches maven.compiler.source/target = 1.8 in {{org}}-parent/pom.xml
-java=8.0.422-tem
+# Matches maven.compiler.source/target = 21 in repo-parent/pom.xml
+java=21.0.11-tem
