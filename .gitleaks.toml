@@ -1,0 +1,11 @@
+[[allowlists]]
+description = "Maven wrapper JAR — vendored binary, not developer-authored"
+paths = ['''.mvn/wrapper/maven-wrapper.jar''']
+
+[[allowlists]]
+description = "Yarn release bundle — vendored third-party file, not developer-authored"
+paths = ['''.yarn/releases/''']
+
+[[allowlists]]
+description = "Template placeholder tokens — these are literal {{...}} strings, not real secrets"
+regexes = ['''{{NVD_API_KEY}}|{{OSS_INDEX_PASSWORD}}|{{OSS_INDEX_USERNAME}}''']

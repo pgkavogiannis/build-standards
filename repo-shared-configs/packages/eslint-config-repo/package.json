@@ -1,0 +1,26 @@
+{
+  "name": "@repo/eslint-config-repo",
+  "version": "1.0.0",
+  "license": "{{LICENSE}}",
+  "description": "Shared ESLint & Prettier configuration for {{PROJECT_NAME}} Angular projects",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    ".prettierignore",
+    ".prettierrc.json"
+  ],
+  "keywords": [
+    "angular",
+    "eslint",
+    "formatting",
+    "quality"
+  ],
+  "peerDependencies": {
+    "eslint": ">=8.0.0",
+    "prettier": ">=3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "prettier": "^3.6.2"
+  }
+}
