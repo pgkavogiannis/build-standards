@@ -1,0 +1,56 @@
+# Claude internals
+.claude/
+
+# Maven build output
+target/
+*/target/
+
+# Maven wrapper binary
+.mvn/wrapper/maven-wrapper.jar
+
+# Java compiled files
+*.class
+*.jar
+!{{org}}-shared-configs/**/*.jar
+
+# Node dependencies
+node_modules/
+**/node_modules/
+
+# Yarn internals
+.yarn/
+**/.yarn/
+*.lock
+!.gitignore
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+*.swp
+*~
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Version control
+.git/

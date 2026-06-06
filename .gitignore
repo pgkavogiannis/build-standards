@@ -1,0 +1,16 @@
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+# Maven
+target
+
+# NPM
+node_modules
+.yarn
+.pnp.cjs
+.pnp.loader.mjs

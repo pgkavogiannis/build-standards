@@ -1,0 +1,3 @@
+#!/bin/sh
+# Verify POM formatting. Run `./mvnw tidy:pom` to auto-fix.
+./mvnw --batch-mode tidy:check -q

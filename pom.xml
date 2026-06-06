@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>{{GROUP_ID}}</groupId>
+    <artifactId>repo-build-standards</artifactId>
+    <version>1.0.0.0</version>
+    <packaging>pom</packaging>
+
+    <name>{{PROJECT_NAME}}</name>
+    <description>A collection of shared build and code quality configuration modules</description>
+
+    <modules>
+        <module>repo-code-quality-configs</module>
+        <module>repo-parent</module>
+    </modules>
+
+    <properties>
+        <tidy-maven-plugin.version>1.4.0</tidy-maven-plugin.version>
+        <gitflow-maven-plugin.version>1.20.0</gitflow-maven-plugin.version>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>tidy-maven-plugin</artifactId>
+                    <version>${tidy-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>tidy-check</id>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                            <phase>validate</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>com.amashchenko.maven.plugin</groupId>
+                    <artifactId>gitflow-maven-plugin</artifactId>
+                    <version>${gitflow-maven-plugin.version}</version>
+                    <configuration>
+                        <verbose>true</verbose>
+                        <gitFlowConfig>
+                            <productionBranch>main</productionBranch>
+                            <developmentBranch>develop</developmentBranch>
+                            <versionTagPrefix>v</versionTagPrefix>
+                        </gitFlowConfig>
+                        <pushRemote>false</pushRemote>
+                        <skipReleaseMergeProdBranch>false</skipReleaseMergeProdBranch>
+                        <keepBranch>true</keepBranch>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <!-- Enable Tidy by default in this and its child projects -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>tidy-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
