@@ -14,3 +14,12 @@ node_modules
 .yarn
 .pnp.cjs
 .pnp.loader.mjs
+
+# Environment variables (only .env.example is committed)
+.env
+.env.*
+!.env.example
+
+# Claude Code local settings
+.claude/settings.local.json
+CLAUDE.local.md
