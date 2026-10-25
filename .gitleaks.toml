@@ -1,0 +1,7 @@
+# Without [extend], a custom config REPLACES gitleaks' built-in rules, so nothing would be detected.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Template placeholder tokens — these are literal {{...}} strings, not real secrets"
+regexes = ['''\{\{(NVD_API_KEY|OSS_INDEX_USERNAME|OSS_INDEX_PASSWORD)\}\}''']

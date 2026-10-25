@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.example</groupId>
+        <artifactId>repo-parent</artifactId>
+        <version>1.0.0.0</version>
+        <!-- In-repo layout; drop this once repo-parent is installed/published and the sample lives elsewhere -->
+        <relativePath>../../repo-parent/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>repo-formatting-sample</artifactId>
+    <version>1.0.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>{{PROJECT_NAME}} Formatting Sample</name>
+    <description>Deliberately badly formatted Java code (Java 8-compatible syntax) for exercising the shared Spotless and Checkstyle configuration</description>
+
+    <build>
+        <plugins>
+            <!-- Versions and configuration come from repo-parent pluginManagement -->
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

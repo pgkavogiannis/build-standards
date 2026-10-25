@@ -1,0 +1,21 @@
+{
+  "name": "repo-shared-configs",
+  "version": "1.0.0",
+  "license": "{{LICENSE}}",
+  "private": true,
+  "description": "Shared ESLint and Prettier configurations for {{PROJECT_NAME}} Angular projects",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "patch:eslint-config-repo": "yarn workspace @repo/eslint-config-repo version patch",
+    "publish:eslint-config-repo": "yarn workspace @repo/eslint-config-repo npm publish --access public --tag latest",
+    "format:check": "yarn workspace @repo/eslint-config-repo format:check",
+    "test": "yarn workspace @repo/eslint-config-repo test"
+  },
+  "volta": {
+    "node": "24.16.0",
+    "yarn": "4.18.1"
+  },
+  "packageManager": "yarn@4.18.1"
+}

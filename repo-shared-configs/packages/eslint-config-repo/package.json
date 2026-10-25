@@ -1,0 +1,38 @@
+{
+  "name": "@repo/eslint-config-repo",
+  "version": "1.0.0",
+  "license": "{{LICENSE}}",
+  "description": "Shared ESLint & Prettier configuration for {{PROJECT_NAME}} Angular projects",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    ".prettierrc.json"
+  ],
+  "scripts": {
+    "format:check": "prettier --check .",
+    "test": "node --test __tests__/config.test.js"
+  },
+  "keywords": [
+    "angular",
+    "eslint",
+    "formatting",
+    "quality"
+  ],
+  "peerDependencies": {
+    "@eslint/js": "^10.0.0",
+    "angular-eslint": "^22.0.0",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "prettier": ">=3.0.0",
+    "typescript-eslint": "^8.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.0",
+    "angular-eslint": "^22.0.0",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "prettier": "^3.6.2",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.0.0"
+  }
+}
