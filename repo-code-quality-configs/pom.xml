@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>{{GROUP_ID}}</groupId>
+        <artifactId>repo-build-standards</artifactId>
+        <version>1.0.0.0</version>
+    </parent>
+
+    <artifactId>repo-code-quality-configs</artifactId>
+    <version>1.0.0.0</version>
+    <packaging>jar</packaging>
+
+    <name>{{PROJECT_NAME}} Code Quality Configuration Artifact</name>
+    <description>Shared code quality configuration files and custom Checkstyle checks for {{PROJECT_NAME}} projects</description>
+
+    <properties>
+        <!-- The checks run inside the Checkstyle engine on the consumer's JDK 8 -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Keep in sync with checkstyle.version in repo-parent: the checks run inside that engine (9.3 is the last line on JDK 8) -->
+        <checkstyle.version>9.3</checkstyle.version>
+        <!-- JUnit 6 requires Java 17; 5.x is the last line that runs on JDK 8 -->
+        <junit.version>5.14.4</junit.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
+    </properties>
+
+    <dependencies>
+        <!-- Provided by maven-checkstyle-plugin at runtime -->
+        <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>${checkstyle.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>
